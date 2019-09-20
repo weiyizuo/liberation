@@ -7,7 +7,7 @@
   SSLCipherSuite HIGH:!aNULL
 
   <Location "/handsome">
-    ProxyPass ws://127.0.0.1:10086/handsome/ upgrade=WebSocket
+    ProxyPass ws://127.0.0.1:10086/handsome upgrade=WebSocket
     ProxyAddHeaders Off
     ProxyPreserveHost On
     RequestHeader append X-Forwarded-For %{REMOTE_ADDR}s
