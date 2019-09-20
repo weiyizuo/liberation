@@ -3,7 +3,7 @@
   SSLCertificateFile /etc/letsencrypt/live/zuoweiyi.me/fullchain.pem
   SSLCertificateKeyFile /etc/letsencrypt/live/zuoweiyi.me/privkey.pem
 
-  SSLProtocol -All +TLSv1 +TLSv1.1 +TLSv1.2
+  SSLProtocol -All +TLSv1.1 +TLSv1.2
   SSLCipherSuite HIGH:!aNULL
 
   <Location "/handsome/">
