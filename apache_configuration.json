@@ -1,0 +1,15 @@
+<VirtualHost *:443>
+  ServerName zuoweiyi.me
+  SSLCertificateFile /etc/letsencrypt/live/zuoweiyi.me/fullchain.pem
+  SSLCertificateKeyFile /etc/letsencrypt/live/zuoweiyi.me/privkey.pem
+
+  SSLProtocol -All +TLSv1 +TLSv1.1 +TLSv1.2
+  SSLCipherSuite HIGH:!aNULL
+
+  <Location "/handsome/">
+    ProxyPass ws://127.0.0.1:10086/handsome/ upgrade=WebSocket
+    ProxyAddHeaders Off
+    ProxyPreserveHost On
+    RequestHeader append X-Forwarded-For %{REMOTE_ADDR}s
+  </Location>
+</VirtualHost>
