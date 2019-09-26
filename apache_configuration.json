@@ -6,10 +6,12 @@
   SSLProtocol -All +TLSv1.1 +TLSv1.2
   SSLCipherSuite HIGH:!aNULL
 
-  <Location "/handsome">
-    ProxyPass ws://127.0.0.1:10086/handsome upgrade=WebSocket
-    ProxyAddHeaders Off
-    ProxyPreserveHost On
-    RequestHeader append X-Forwarded-For %{REMOTE_ADDR}s
-  </Location>
+<Location "/handsome/">
+  ProxyPass ws://127.0.0.1:10086/handsome upgrade=WebSocket
+  ProxyAddHeaders Off
+  ProxyPreserveHost On
+  RequestHeader set Host %{HTTP_HOST}s
+  RequestHeader append X-Forwarded-For %{REMOTE_ADDR}s
+</Location>
+
 </VirtualHost>
