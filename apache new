@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+     ServerAdmin admin@example.com
+     DocumentRoot /var/www/wordpress1/
+     ServerName zuoweiyi.me
+     ServerAlias www.zuoweiyi.me
+
+     ErrorLog ${APACHE_LOG_DIR}/error1.log
+     CustomLog ${APACHE_LOG_DIR}/access1.log combined
+
+</VirtualHost>
+
+<VirtualHost *:80>
+     ServerAdmin admin@example.com
+     DocumentRoot /var/www/wordpress2/
+     ServerName lnystckng.xyz
+     ServerAlias www.lnystckng.xyz
+
+     ErrorLog ${APACHE_LOG_DIR}/error2.log
+     CustomLog ${APACHE_LOG_DIR}/access2.log combined
+
+</VirtualHost>
