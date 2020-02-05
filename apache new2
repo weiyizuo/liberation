@@ -1,0 +1,37 @@
+<VirtualHost *:80>
+    ServerName default
+    DocumentRoot /var/www/html/
+    <Location />
+        Require all denied
+    </Location>
+</VirtualHost>
+
+<VirtualHost *:80>
+     ServerAdmin admin@example.com
+     DocumentRoot /var/www/wordpress1/
+     ServerName zuoweiyi.me
+     ServerAlias www.zuoweiyi.me
+
+     ErrorLog ${APACHE_LOG_DIR}/error1.log
+     CustomLog ${APACHE_LOG_DIR}/access1.log combined
+
+RewriteEngine on
+RewriteCond %{SERVER_NAME} =zuoweiyi.me [OR]
+RewriteCond %{SERVER_NAME} =www.zuoweiyi.me
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+
+<VirtualHost *:80>
+     ServerAdmin admin@example.com
+     DocumentRoot /var/www/wordpress2/
+     ServerName lnystckng.xyz
+     ServerAlias www.lnystckng.xyz
+
+     ErrorLog ${APACHE_LOG_DIR}/error2.log
+     CustomLog ${APACHE_LOG_DIR}/access2.log combined
+
+RewriteEngine on
+RewriteCond %{SERVER_NAME} =www.lnystckng.xyz [OR]
+RewriteCond %{SERVER_NAME} =lnystckng.xyz
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
